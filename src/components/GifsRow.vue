@@ -4,12 +4,14 @@ import useFetch from '../hook/useFetch'
 
 const props = defineProps<{ searchParams: string }>()
 const data = ref()
+
 watchEffect(
   async () => {
     data.value = await useFetch(props.searchParams)
   })
 
 </script>
+
 <template>
   <p>{{ searchParams }}</p>
 
@@ -20,6 +22,7 @@ watchEffect(
   </ul>
   <ul v-else>Loading...</ul>
 </template>
+
 <style scoped>
 .container {
   display: flex;
